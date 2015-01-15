@@ -13,6 +13,15 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'war'
 
+war {
+    baseName = 'myapp'
+    version =  '0.5.0'
+}
+
+configurations {
+    providedRuntime
+}
+
 description = 'web'
 
 dependencies {

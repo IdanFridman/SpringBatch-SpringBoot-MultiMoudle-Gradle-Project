@@ -14,15 +14,16 @@ import javax.inject.Inject;
  * Created by idan on 1/15/15.
  */
 @RestController
+@RequestMapping("/batch")
 class JobController {
 
     @Inject
-    NotificationJobService jobServices;
+    NotificationJobService NotificationJobServiceImpl;
 
     @RequestMapping(value = "/processFileJob", method = RequestMethod.POST)
     @ResponseBody
     public StatusResponse processFileJob(ProcessFileRequestDTO processFileRequestDTO) {
-        return jobServices.startProcessFileJobExecution(processFileRequestDTO);
+        return NotificationJobServiceImpl.startProcessFileJobExecution(processFileRequestDTO);
 
     }
 }
