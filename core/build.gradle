@@ -17,8 +17,5 @@ description = 'core'
 
 dependencies {
     compile("mysql:mysql-connector-java")
-    testCompile("org.springframework.boot:spring-boot-starter-test:$project.ext.springBootVersion")
-
-
     compile project(":common")
 }

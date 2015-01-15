@@ -24,10 +24,15 @@ subprojects {
         mavenLocal()
         mavenCentral()
     }
+
+    dependencies {
+        compile("org.springframework.boot:spring-boot-starter-web")
+        compile("org.springframework.boot:spring-boot-starter-actuator")
+        compile project(":common")
+    }
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.1'
 }
-
 
