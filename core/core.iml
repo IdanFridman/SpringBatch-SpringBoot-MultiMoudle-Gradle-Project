@@ -37,5 +37,6 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-core:4.1.4.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.springframework:spring-test:4.1.4.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.objenesis:objenesis:2.1" level="project" />
+    <orderEntry type="module" module-name="batch" exported="" />
   </component>
 </module>
