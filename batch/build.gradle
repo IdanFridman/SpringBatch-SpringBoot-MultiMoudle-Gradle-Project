@@ -1,0 +1,23 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$project.ext.springBootVersion")
+
+    }
+}
+apply plugin: 'spring-boot'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'war'
+
+description = 'core'
+
+dependencies {
+
+    compile("org.springframework.boot:spring-boot-starter-batch:$project.ext.springBootVersion")
+    compile project(":common")
+}
