@@ -1,4 +1,6 @@
 allprojects {
+
+    task hello << { task -> println "I'm $task.project.name" }
     apply plugin: 'idea'
     apply plugin: 'eclipse'
 
@@ -15,6 +17,7 @@ subprojects {
 
     project.ext {
         springBootVersion = '1.2.1.RELEASE'
+        springBatchVersion= '3.0.2.RELEASE'
     }
 
     repositories {
@@ -26,3 +29,5 @@ subprojects {
 task wrapper(type: Wrapper) {
     gradleVersion = '2.1'
 }
+
+

@@ -1,8 +1,10 @@
 rootProject.name = 'SpringBatch-SpringBoot-MultiMoudle-Gradle-Project'
 
-include 'common','common'
+include 'common'
 
 include 'core'
 
 include 'batch'
+
+include 'web'
 

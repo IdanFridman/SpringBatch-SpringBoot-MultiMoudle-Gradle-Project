@@ -1,5 +1,6 @@
 package com.play.notification_processor_service.common;
 
+import com.play.notification_processor_service.common.config.CommonConfiguration;
 import com.play.notification_processor_service.common.model.NotificationJobEntity;
 import com.play.notification_processor_service.common.model.NotificationTaskEntity;
 import com.play.notification_processor_service.common.repository.NotificationRepository;
@@ -15,7 +16,7 @@ import java.util.Date;
  * Created by idan on 1/14/15.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes=Application.class)
+@SpringApplicationConfiguration(classes= CommonConfiguration.class)
 public class NotificationRepositoryTest {
 
 
@@ -28,7 +29,7 @@ public class NotificationRepositoryTest {
     {
         NotificationJobEntity notificationJobEntity=new NotificationJobEntity();
         notificationJobEntity.setCreatedDate(new Date());
-        notificationJobEntity.setMessageBody("hello youu");
+        notificationJobEntity.setMessageBody("hello youu12");
         notificationJobEntity.setSegmentId("3a33a");
 
           NotificationTaskEntity notificationTaskEntity=new NotificationTaskEntity();
