@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$project.ext.springBootVersion")
+    }
+}
+apply plugin: 'spring-boot'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'war'
+
+description = 'web'
+
+dependencies {
+
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile project(":common")
+    compile project(":core")
+
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}
+
+project(':core') {
+    dependencies {
+        compile project(':common'), project(':batch')
+    }
+}
