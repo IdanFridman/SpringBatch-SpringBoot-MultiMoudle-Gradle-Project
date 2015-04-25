@@ -5,7 +5,6 @@ package com.play.notification_processor_service.common.dto;
  */
 public class ProcessFileRequestDTO {
 
-    String filePath;
     String jobId;
     String taskId;
     String pushMessage;
@@ -18,13 +17,6 @@ public class ProcessFileRequestDTO {
         this.pushMessage = pushMessage;
     }
 
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
 
     public String getJobId() {
         return jobId;
@@ -45,7 +37,6 @@ public class ProcessFileRequestDTO {
     @Override
     public String toString() {
         return "ProcessFileDTO{" +
-                "filePath='" + filePath + '\'' +
                 ", jobId='" + jobId + '\'' +
                 ", taskId='" + taskId + '\'' +
                 ", pushMessage='" + pushMessage + '\'' +

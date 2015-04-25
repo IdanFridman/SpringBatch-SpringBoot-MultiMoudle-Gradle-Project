@@ -18,7 +18,6 @@ description = 'batch'
 
 dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test:$project.ext.springBootVersion")
-    compile("mysql:mysql-connector-java")
     compile 'commons-dbcp:commons-dbcp:1.4'
     compile("org.springframework.boot:spring-boot-starter-batch:$project.ext.springBootVersion")
     testCompile("org.springframework.batch:spring-batch-test:$project.ext.springBatchVersion") {

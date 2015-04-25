@@ -12,11 +12,10 @@ import javax.sql.DataSource;
  * Created by idan on 1/15/15.
  */
 @ComponentScan("com.play.notification_processor_service.batch")
-@PropertySource("classpath:application.properties")
 @Configuration
 @Import({CommonConfiguration.class})
 public class BatchConfiguration {
-
+/*
     @Value("${database.driver}")
     private String databaseDriver;
     @Value("${database.url}")
@@ -41,7 +40,7 @@ public class BatchConfiguration {
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
-    }
+    }*/
 
 
 }

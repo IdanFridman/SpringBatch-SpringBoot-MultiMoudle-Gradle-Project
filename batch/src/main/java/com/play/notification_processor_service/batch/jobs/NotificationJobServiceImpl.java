@@ -8,10 +8,13 @@ import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
+import org.springframework.scheduling.annotation.Async;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by idan on 1/15/15.
@@ -25,12 +28,27 @@ public class NotificationJobServiceImpl implements NotificationJobService {
     @Inject
     private Job processFileJob;
 
-    @Override
-    public StatusResponse startProcessFileJobExecution(ProcessFileRequestDTO processFileRequestDTO) {
+    ExecutorService executorService= Executors.newFixedThreadPool(30);
 
+    @Override
+    @Async
+    public StatusResponse startProcessFileJobExecution(final ProcessFileRequestDTO processFileRequestDTO) {
+
+        for (int i=0;i<10;i++) {
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    execute(processFileRequestDTO);
+                }
+            });
+        }
+     return null;
+    }
+
+    private StatusResponse execute(ProcessFileRequestDTO processFileRequestDTO) {
         //TODO: genereate refId from insights service
         String refId = "abc111";
-        String filePath= processFileRequestDTO.getFilePath();
+        String filePath= "PLACE_HOLDER";
         String jobId= processFileRequestDTO.getJobId();
         String taskId= processFileRequestDTO.getTaskId();
         String pushMessage= processFileRequestDTO.getPushMessage();
